@@ -1,0 +1,6 @@
+/Asm_Build_x86/
+/Asm_Build_x64/
+
+.vs/
+*.user
+
