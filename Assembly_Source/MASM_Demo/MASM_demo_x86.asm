@@ -33,7 +33,7 @@
      ; ExitProcess(0)
      push 0                           ; exit code 0
      call ExitProcess@4
-     ret                              ; unreachable  ExitProcess never returns  kept for symmetry
+     ret                              ; unreachable  ExitProcess never returns 0 kept for symmetry
  MainEntry ENDP
  END MainEntry
 
