@@ -24,10 +24,10 @@ function(MASM_ARCH_TARGET Name_Arch Masm_File_or_Files)
 endfunction()
 
 if(NOT BUILD_x64_ONLY)
-	MASM_ARCH_TARGET(MASM_Env_Repo_book_86 "${CMAKE_CURRENT_SOURCE_DIR}/Assembly_Source/Main_x86.asm")
+	MASM_ARCH_TARGET(MASM_Env_Repo_book_86 "${CMAKE_CURRENT_SOURCE_DIR}/Assembly_Source/MASM_Demo/MASM_demo_x86.asm")
 endif()
 if(NOT BUILD_x86_ONLY)
-	MASM_ARCH_TARGET(MASM_Env_Repo_book_64 "${CMAKE_CURRENT_SOURCE_DIR}/Assembly_Source/Main_x64.asm")
+	MASM_ARCH_TARGET(MASM_Env_Repo_book_64 "${CMAKE_CURRENT_SOURCE_DIR}/Assembly_Source/MASM_Demo/MASM_demo_x64.asm")
 endif()
 
 # --------------------------------------------------------------------------------------------------- #
