@@ -13,6 +13,8 @@ set_target_properties(${PROJECT_NAME}  PROPERTIES
 
 target_compile_options(${PROJECT_NAME} PRIVATE
     "$<$<COMPILE_LANGUAGE:ASM_MASM>:/Zi>"
+    "$<$<COMPILE_LANGUAGE:ASM_MASM>:/Zf>"
+    "$<$<COMPILE_LANGUAGE:ASM_MASM>:/Sa>"
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
