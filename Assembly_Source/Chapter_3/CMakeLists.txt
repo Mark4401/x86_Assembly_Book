@@ -2,6 +2,17 @@ cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 set(CMAKE_C_STANDARD_REQUIRED 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+option(BUILD_x86_Projects "Currently Targeting x86 masm code!" ON)
+option(BUILD_x64_Projects "Currently Targeting x64 masm code!" OFF)
+
+if(BUILD_x64_Projects)
+
+add_subdirectory(x64_masm)
+
+endif()
+
+if(BUILD_x86_Projects)
+
 project(Basic_language_Elements LANGUAGES C ASM_MASM)
 
 add_executable(${PROJECT_NAME}
@@ -57,3 +68,4 @@ target_link_options(${PROJECT_NAME} PRIVATE
     "/NODEFAULTLIB"
     "/$<$<CONFIG:Debug>:/DEBUG>"
 )
+endif()
