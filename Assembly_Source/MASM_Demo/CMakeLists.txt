@@ -5,8 +5,8 @@
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 project(MASM_Env_Repo_book LANGUAGES C ASM_MASM)
 
-option(BUILD_x64_ONLY "Configure only the x64 target" OFF)
-option(BUILD_x86_ONLY "Configure only the x86 target" ON)
+option(BUILD_x64_ONLY "Configure only the x64 target" ON)
+option(BUILD_x86_ONLY "Configure only the x86 target" OFF)
 
 if(BUILD_x64_ONLY AND BUILD_x86_ONLY)
 	message(FATAL_ERROR "Specify at most one of the following BUILD_x64_ONLY / BUILD_x86_ONLY!")

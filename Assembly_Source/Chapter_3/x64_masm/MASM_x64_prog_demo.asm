@@ -1,23 +1,24 @@
- option casemap:none
+option casemap:none
 
-EXTERN ExitProcess:PROC
+Extern ExitProcess:PROC
 
- .data
+.data
 
-    Sum QWORD 0
+    SUM_VAL QWORD ?
 
- .code
+.code
 
- main PROC
+MasmEntry PROC
 
-    sub rsp, 40
-    mov rax, 5
-    add rax, 6
-    mov Sum, rax
+    mov     rax, 5
+    add     rax, 6
+    mov     SUM_VAL, rax
 
-    mov rcx, 0
+    sub     rsp, 28h  ; shadow space + alignment
+	
+	mov		rcx, SUM_VAL
+    call    ExitProcess
 
-    call ExitProcess
+MasmEntry ENDP
+END
 
- main ENDP
- END

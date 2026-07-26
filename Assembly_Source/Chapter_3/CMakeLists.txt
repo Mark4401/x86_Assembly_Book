@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 set(CMAKE_C_STANDARD_REQUIRED 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-option(BUILD_x86_Projects "Currently Targeting x86 masm code!" ON)
-option(BUILD_x64_Projects "Currently Targeting x64 masm code!" OFF)
+option(BUILD_x86_Projects "Currently Targeting x86 masm code!" OFF)
+option(BUILD_x64_Projects "Currently Targeting x64 masm code!" ON)
 
 if(BUILD_x64_Projects)
 
