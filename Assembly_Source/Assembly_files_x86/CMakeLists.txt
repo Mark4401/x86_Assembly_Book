@@ -1,6 +1,3 @@
-cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
-set(CMAKE_C_STANDARD_REQUIRED 17 ON)
-
 # set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 project(Chapters_4_x86 LANGUAGES C ASM_MASM)
 
@@ -23,7 +20,7 @@ function(Chapter_4_Directives_and_usecase Program_name Program_files Program_ent
 
 endfunction()
 
-Chapter_4_Directives_and_usecase(Adding_extern_functions
+Chapter_4_Directives_and_usecase(Adding_extern_functions_vghjkl
     Adding_extern_functions.asm
     "main_other"
 )

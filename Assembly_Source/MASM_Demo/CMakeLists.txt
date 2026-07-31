@@ -1,16 +1,10 @@
 # Cmake CLI options when compiling
-# cmake -S . -B ./build/Demo_Asm_build_x64 -G "Ninja" -DCMAKE_BUILD_TYPE=Debug -DBUILD_x64_ONLY=ON
-# cmake -S . -B ./build/Demo_Asm_build_x86 -G "Ninja" -DCMAKE_BUILD_TYPE=Debug -DBUILD_x86_ONLY=ON
-cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
-set(CMAKE_C_STANDARD_REQUIRED 17 ON)
-
+# cmake -S . -B ./build/Demo_Asm_build_x64 -G "Ninja" -DCMAKE_BUILD_TYPE=Debug -Dx64_Active=ON
+# cmake -S . -B ./build/Demo_Asm_build_x86 -G "Ninja" -DCMAKE_BUILD_TYPE=Debug -Dx86_Active=ON
 project(MASM_Env_Repo_book LANGUAGES C ASM_MASM)
 
-option(BUILD_x64_ONLY "Configure only the x64 target" ON)
-option(BUILD_x86_ONLY "Configure only the x86 target" OFF)
-
-if(BUILD_x64_ONLY AND BUILD_x86_ONLY)
-	message(FATAL_ERROR "Specify at most one of the following BUILD_x64_ONLY / BUILD_x86_ONLY!")
+if(x64_Active AND x86_Active)
+	message(FATAL_ERROR "Specify at most one of the following x64_Active / x86_Active!")
 endif()
 
 function(MASM_ARCH_TARGET Name_Arch Masm_File_or_Files)
@@ -27,10 +21,10 @@ function(MASM_ARCH_TARGET Name_Arch Masm_File_or_Files)
 	)
 endfunction()
 
-if(NOT BUILD_x64_ONLY)
+if(NOT x64_Active)
 	MASM_ARCH_TARGET(MASM_Env_Repo_book_86 "${CMAKE_CURRENT_SOURCE_DIR}/MASM_demo_x86.asm")
 endif()
-if(NOT BUILD_x86_ONLY)
+if(NOT x86_Active)
 	MASM_ARCH_TARGET(MASM_Env_Repo_book_64 "${CMAKE_CURRENT_SOURCE_DIR}/MASM_demo_x64.asm")
 endif()
 
