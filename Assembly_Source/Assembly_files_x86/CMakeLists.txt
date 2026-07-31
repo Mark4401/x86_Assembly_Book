@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 set(CMAKE_C_STANDARD_REQUIRED 17 ON)
 
 # set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-project(Chapter_4 LANGUAGES C ASM_MASM)
+project(Chapters_4_x86 LANGUAGES C ASM_MASM)
 
 function(Chapter_4_Directives_and_usecase Program_name Program_files Program_entry_name)
 
@@ -23,20 +23,7 @@ function(Chapter_4_Directives_and_usecase Program_name Program_files Program_ent
 
 endfunction()
 
-Chapter_4_Directives_and_usecase(Data_Transfer_Addressing_and_Arithmetic
-    Data_Transfer_Addressing_and_Arithmetic.asm
-    "Memory_Entry"
+Chapter_4_Directives_and_usecase(Adding_extern_functions
+    Adding_extern_functions.asm
+    "main_other"
 )
-
-Chapter_4_Directives_and_usecase(Assembly_Basics
-    Masm_specific_aspects.asm
-    "Fundamental_Assembly_Elements"
-)
-
-Chapter_4_Directives_and_usecase(Assembly_Basics_MOV_Instructions
-    MOV_Instructions.asm
-    "MOV_Instructions"
-)
-
-
-

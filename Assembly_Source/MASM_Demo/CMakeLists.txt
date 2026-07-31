@@ -1,8 +1,9 @@
 # Cmake CLI options when compiling
 # cmake -S . -B ./build/Demo_Asm_build_x64 -G "Ninja" -DCMAKE_BUILD_TYPE=Debug -DBUILD_x64_ONLY=ON
 # cmake -S . -B ./build/Demo_Asm_build_x86 -G "Ninja" -DCMAKE_BUILD_TYPE=Debug -DBUILD_x86_ONLY=ON
-
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
+set(CMAKE_C_STANDARD_REQUIRED 17 ON)
+
 project(MASM_Env_Repo_book LANGUAGES C ASM_MASM)
 
 option(BUILD_x64_ONLY "Configure only the x64 target" ON)

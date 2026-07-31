@@ -21,7 +21,9 @@ Extern ExitProcess:PROC
     Byte_Val    BYTE    10001111b       ; NOTE! XXXXXX<B noation for Binary definition>
 
     ; MOVSX Instruction variable
+    ; Direct-Offset Operands
 
+    Byte_Array BYTE     10h, 20h, 30h, 40h
 .code
 
 Memory_Entry PROC
@@ -58,6 +60,19 @@ Memory_Entry PROC
     ; MOVZX Instruction variable | ZX ==> Zero extended
     mov     eax, 0
     movzx   ax, Byte_Val       ; 0000000010001111b i.e. 16 bit binary value i.e. | Byte_Val	143 ''	unsigned char | 0x8F in Hex notation
+
+    ;   EDX, EAX
+
+    mov     edx, 0
+    mov     eax, 0
+
+    ; Direct-Offset Operands
+    mov     al, Byte_Array          ; 10h
+    mov     al, [Byte_Array + 1]    ; 20h
+    mov     al, [Byte_Array + 2]    ; 30h
+    mov     al, [Byte_Array + 3]    ; 40h
+
+    ;   EDX, EAX
 
     mov     eax, 0
     sub     rsp, 28h  ; shadow space + alignment
