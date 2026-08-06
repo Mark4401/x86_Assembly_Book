@@ -5,11 +5,15 @@
 ExitProcess PROTO, dwExitCode:DWORD
 WriteHex    PROTO
 
+.data
+Byte_Val    SBYTE    10000000b
+
 .code
 
 main_other PROC
 
-    mov eax, -7532954
+    movzx eax,    Byte_Val
+
     call WriteHex
 
     mov eax, 0

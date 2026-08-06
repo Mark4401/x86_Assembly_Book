@@ -17,7 +17,7 @@ function(MASM_ARCH_TARGET Name_Arch Masm_File_or_Files)
 		"/ENTRY:MainEntry"
 		"/SUBSYSTEM:CONSOLE"
 		"/NODEFAULTLIB"
-		"/$<$<CONFIG:Debug>:/DEBUG>"
+		"$<$<CONFIG:Debug>:/DEBUG>"
 	)
 endfunction()
 

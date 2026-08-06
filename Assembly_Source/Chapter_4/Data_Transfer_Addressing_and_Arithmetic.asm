@@ -45,7 +45,6 @@ Memory_Entry PROC
     mov     ax, One_Word     ; EAX = 00001234h
     mov     eax, One_Dword   ; EAX = 12345678h
     mov     ax, 0            ; EAX = 12340000h
-
     ; Data transfer from smallest to largest registers
 
     mov     ecx, 0

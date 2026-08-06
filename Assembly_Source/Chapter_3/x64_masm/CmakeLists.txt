@@ -22,5 +22,5 @@ target_link_options(${PROJECT_NAME} PRIVATE
     "/ENTRY:MasmEntry"
     "/SUBSYSTEM:CONSOLE"
     "/NODEFAULTLIB"
-    "/$<$<CONFIG:Debug>:/DEBUG>"
+    "$<$<CONFIG:Debug>:/DEBUG>"
 )

@@ -20,20 +20,22 @@ function(Chapter_4_Directives_and_usecase Program_name Program_files Program_ent
 
 endfunction()
 
-Chapter_4_Directives_and_usecase(Data_Transfer_Addressing_and_Arithmetic
-    Data_Transfer_Addressing_and_Arithmetic.asm
-    "Memory_Entry"
-)
+if(x64_Active)
+    Chapter_4_Directives_and_usecase(Data_Transfer_Addressing_and_Arithmetic
+        Data_Transfer_Addressing_and_Arithmetic.asm
+        "Memory_Entry"
+    )
 
-Chapter_4_Directives_and_usecase(Assembly_Basics
-    Masm_specific_aspects.asm
-    "Fundamental_Assembly_Elements"
-)
-
-Chapter_4_Directives_and_usecase(Assembly_Basics_MOV_Instructions
-    MOV_Instructions.asm
-    "MOV_Instructions"
-)
-
+    Chapter_4_Directives_and_usecase(Assembly_Basics
+        Masm_specific_aspects.asm
+        "Fundamental_Assembly_Elements"
+    )
+endif()
+if(x86_Active)
+    Chapter_4_Directives_and_usecase(Assembly_Basics_MOV_Instructions
+        MOV_Instructions.asm
+        "MOV_Instructions"
+    )
+endif()
 
 

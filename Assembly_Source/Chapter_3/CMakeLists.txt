@@ -30,7 +30,7 @@ target_link_options(${PROJECT_NAME} PRIVATE
     "/ENTRY:main"
     "/SUBSYSTEM:CONSOLE"
     "/NODEFAULTLIB"
-    "/$<$<CONFIG:Debug>:/DEBUG>"
+    "$<$<CONFIG:Debug>:/DEBUG>"
 )
 
 # # # # # BYTE-LENGHT-PORG # # # # #
@@ -59,6 +59,6 @@ target_link_options(${PROJECT_NAME} PRIVATE
     "/ENTRY:main"
     "/SUBSYSTEM:CONSOLE"
     "/NODEFAULTLIB"
-    "/$<$<CONFIG:Debug>:/DEBUG>"
+    "$<$<CONFIG:Debug>:/DEBUG>"
 )
 endif()

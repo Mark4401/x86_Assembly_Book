@@ -1,6 +1,8 @@
-option casemap:none
+.386
+.model flat, stdcall
+.stack 4092
 
-Extern ExitProcess:PROC
+ExitProcess PROTO, dwExitCode:DWORD
 
 .data
 
@@ -26,10 +28,10 @@ MOV_Instructions PROC
     movzx   ebx, bl         ; EBX = 0000009Bh
     movzx   cx,  bl         ; CX  = 009Bh
 
-    mov     rax, 0
-    mov     rbx, 0
-    mov     rcx, 0
-    mov     rdx, 0
+    mov     eax, 0
+    mov     ebx, 0
+    mov     ecx, 0
+    mov     edx, 0
 
     ; Demonstrating MOVSX instruction
     mov     bx,  0A96Bh
@@ -38,10 +40,10 @@ MOV_Instructions PROC
     mov     bl,  78h
     movsx   cx,  bl         ; CX = 007Bh
 
-    mov     rax, 0
-    mov     rbx, 0
-    mov     rcx, 0
-    mov     rdx, 0
+    mov     eax, 0
+    mov     ebx, 0
+    mov     ecx, 0
+    mov     edx, 0
 
     ; Memory-to-memory exchange:
     mov     ax,  Word_Val_1 ; AX = 1000h
@@ -51,7 +53,7 @@ MOV_Instructions PROC
 
     ; Direct-Offset Addressing (byte array):
     ; BYTE Example;
-    mov     rax, 0
+    mov     eax, 0
     mov     al, Byte_Array
     mov     al, [Byte_Array + 1]
     mov     al, [Byte_Array + 2]
@@ -59,25 +61,25 @@ MOV_Instructions PROC
     mov     al, [Byte_Array + 4]
 
     ; WORD Example:
-    mov     rax, 0
+    mov     eax, 0
     mov     ax, Word_Array          ; 100h
     mov     ax, [Word_Array + 2]    ; 200h
     mov     ax, [Word_Array + 4]    ; 300h
 
     ; DWORD Example:
-    mov     rax, 0
+    mov     eax, 0
     mov     eax, Dword_Array          ; 1000h
     mov     eax, [Dword_Array + 4]    ; 2000h
     mov     eax, [Dword_Array + 8]    ; 3000h
-    mov     rax, 0
+    mov     eax, 0
     ; END of Array distillation
 
 
 	mov     eax, 0
-    sub     rsp, 28h  ; shadow space + alignment
+    ; sub     rsp, 28h  ; shadow space + alignment
 
-	mov		rcx, 0
-    call    ExitProcess
+	; mov		ecx, 0
+    INVOKE  ExitProcess, 0
 
 MOV_Instructions ENDP
 END
